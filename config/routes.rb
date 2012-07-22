@@ -1,6 +1,6 @@
 Proioxis::Application.routes.draw do
   resources :users
-  resources :sessions, only: [:new, :create, :destory]
+  resources :sessions,      only: [:new, :create, :destory]
   
   root to: 'static_pages#home'
 

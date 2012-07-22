@@ -16,7 +16,7 @@ RSpec::Matchers.define :have_error_message do |message|
 end
 
 def sign_in(user)
-	visit signin_path
+	visit '/signin'
 	fill_in "Email",    with: user.email
 	fill_in "Password", with: user.password
 	click_button "Sign in"

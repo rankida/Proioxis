@@ -1,6 +1,11 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+# Pick the frameworks you want:
+require "active_record/railtie"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "active_resource/railtie"
+require "sprockets/railtie"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -55,5 +60,9 @@ module Proioxis
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # mail settings. Came from https://devcenter.heroku.com/articles/smtp
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.raise_delivery_errors = true
   end
 end
