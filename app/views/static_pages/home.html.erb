@@ -1,3 +1,8 @@
+<% if signed_in? %>
+  <h2>Hi <%= current_user.name %></h2>
+  <p>This is your launch page</p>
+  <p>To view your <a href="<%= user_path(current_user) %>">profile</a> click <a href="<%= user_path(current_user) %>">here</a>
+<% else %>
   <div class="center hero-unit">
   	<h1>Proioxis</h1>
   	<h2>
@@ -7,3 +12,4 @@
   	<%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
   </div>
   <div class="empty-buffer"></div>
+<% end %>
