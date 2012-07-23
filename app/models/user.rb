@@ -1,3 +1,4 @@
+
 # == Schema Information
 #
 # Table name: users
@@ -24,6 +25,10 @@ class User < ActiveRecord::Base
   									uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 } # dont need presence: because has_secure_password doe this??
   validates :password_confirmation, presence: true
+
+  def admin?
+    return false
+  end
 
   private
 
