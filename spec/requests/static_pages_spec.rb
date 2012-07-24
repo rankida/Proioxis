@@ -9,6 +9,7 @@ describe "Static pages" do
 
     it { should have_selector('h1', text: 'Proioxis') }
     it { should have_selector('title', text: full_title('')) }
+    it { should have_link('Sign up now!', href:signup_path) }
     it { should_not have_selector('title', text: "| Home") }
   end
 
