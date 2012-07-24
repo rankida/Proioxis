@@ -1,5 +1,6 @@
+<% provide(:title, @user.name) %>
 <p id="notice"><%= notice %></p>
-<h1>Profile</h1>
+<h1><%= @user.name %>'s Profile</h1>
 <p>
   <b>Name:</b>
   <%= @user.name %>
