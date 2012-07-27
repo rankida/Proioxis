@@ -1,0 +1,33 @@
+<h1>Listing accounts</h1>
+
+<table>
+  <tr>
+    <th>Company name</th>
+    <th>Billing details</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>Address2</th>
+    <th>Postcode</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @accounts.each do |account| %>
+  <tr>
+    <td><%= account.company_name %></td>
+    <td><%= account.billing_details %></td>
+    <td><%= account.address1 %></td>
+    <td><%= account.address2 %></td>
+    <td><%= account.address2 %></td>
+    <td><%= account.postcode %></td>
+    <td><%= link_to 'Show', account %></td>
+    <td><%= link_to 'Edit', edit_account_path(account) %></td>
+    <td><%= link_to 'Destroy', account, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Account', new_account_path %>
