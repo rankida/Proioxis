@@ -1,5 +1,28 @@
+<% provide(:title, 'Add User') %>
 <h1>New account</h1>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@account) do |f| %>
 
-<%= link_to 'Back', accounts_path %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :company_name %>
+      <%= f.text_field :company_name %>
+
+      <%= f.label :billing_details %>
+      <%= f.text_field :billing_details %>
+
+      <%= f.label :address1 %>
+      <%= f.text_field :address1 %>
+
+      <%= f.label :address2 %>
+      <%= f.text_field :address2 %>
+
+      <%= f.label :postcode %>
+      <%= f.text_field :postcode %>
+
+      <%= f.submit "Create new account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

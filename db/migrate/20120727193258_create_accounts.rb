@@ -5,7 +5,6 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :billing_details
       t.string :address1
       t.string :address2
-      t.string :address2
       t.string :postcode
 
       t.timestamps
