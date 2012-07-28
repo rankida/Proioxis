@@ -4,13 +4,6 @@ describe "User pages" do
 
 	subject { page }
 
-  describe "Signup page" do
-  	before { visit signup_path }
-
-  	it { should have_selector('h1',    text: 'Sign Up') }
-  	it { should have_selector('title', text: full_title('Sign Up'))}
-  end
-
   describe "profile page" do
 	  let(:user) { FactoryGirl.create(:user) }
 
@@ -21,11 +14,14 @@ describe "User pages" do
 
   end
 
-  describe "signup" do
+  describe "Add user page" do
 
-    before { visit signup_path }
+    before { visit new_user_path }
 
     let(:submit) { "Create my account" }
+
+    it { should have_selector('h1',    text: 'Add User') }
+    it { should have_selector('title', text: full_title('Add User'))}
 
     describe "with invalid information" do
       it "should not create a user" do
@@ -34,7 +30,7 @@ describe "User pages" do
 
       describe "after submission" do
         before { click_button submit }
-        it { should have_selector('title', text: 'Sign Up') }
+        it { should have_selector('title', text: 'Add User') }
         it { should have_content('error') }
       end
     end
