@@ -2,14 +2,12 @@
 #
 # Table name: accounts
 #
-#  id              :integer         not null, primary key
+#  id              :integer          not null, primary key
 #  company_name    :string(255)
 #  billing_details :string(255)
-#  address1        :string(255)
-#  address2        :string(255)
-#  postcode        :string(255)
-#  created_at      :datetime        not null
-#  updated_at      :datetime        not null
+#  address         :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 require 'spec_helper'

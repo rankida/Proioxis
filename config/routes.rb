@@ -3,10 +3,13 @@ Proioxis::Application.routes.draw do
 
   resources :users
   resources :sessions,      only: [:new, :create, :destory]
+  match '/signup',         to: 'signup#new_user',       via: :get
+  match '/signup/user',    to: 'signup#new_user',       via: :get
+  match '/signup/user',    to: 'signup#create_user',    via: :post
+  match '/signup/account', to: 'signup#create_account', via: :post
   
   root to: 'static_pages#home'
 
-  match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
