@@ -12,6 +12,7 @@
 
 class Account < ActiveRecord::Base
   attr_accessible :address, :billing_details, :company_name
+  has_many :users, :dependent => :destroy
 
   validates :company_name, presence: true
   validates :address, presence: true

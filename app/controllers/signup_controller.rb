@@ -6,8 +6,8 @@ class SignupController < ApplicationController
 
   def create_user
     @user = User.new(params[:user])
-    if @user.save
-      session[:temp_user] = @user
+    if @user.valid?
+      session[:user_params] = params[:user]
       @account = Account.new
       render 'new_account'
     else
@@ -17,8 +17,13 @@ class SignupController < ApplicationController
 
   def create_account
     @account = Account.new(params[:account])
-    if @account.save
-      sign_in session[:temp_user]
+    if @account.valid? && User.new(session[:user_params]).valid?
+      Account.transaction do
+        @account.save!
+        @account.users.create!(session[:user_params])
+      end
+      sign_in @account.users.first
+      session.delete(:user_params)
       flash[:success] = "Welcome to Proioxis"
       redirect_to @account
     else
