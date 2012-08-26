@@ -11,19 +11,12 @@
 <body>
 	<%= render 'layouts/header' %>
 	<div class="container">
-		<div class="row">
-			<div class="span3">
-				<%= render 'layouts/sidenav' %>
-			</div>
-			<div class="span9">
-				<% flash.each do |key, value| %>
-					<%= content_tag(:div, value, class: "alert alert-#{key}") %>
-				<% end %>
-				<%= yield %>
-				<%= render 'layouts/footer' %>
-		    <%= debug(params) if Rails.env.development? %>
-		  </div>
-	  </div>
+		<% flash.each do |key, value| %>
+			<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+		<% end %>
+		<%= yield %>
+		<%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
 	</div>
 </body>
 </html>

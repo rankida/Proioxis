@@ -1,4 +1,6 @@
 class SignupController < ApplicationController
+  layout 'static_pages'
+
   # /signup/ -- this would be for new users
   def new_user
     @user = User.new
